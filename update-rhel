@@ -1,6 +1,6 @@
 ---
 - name: Update RHEL systems
-  hosts: [test]
+  hosts: [Test]
   become: yes
 
   tasks:
