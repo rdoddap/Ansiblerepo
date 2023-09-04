@@ -1,0 +1,14 @@
+---
+- name: Monitor and Start HTTPD if Disabled
+  hosts: [Test]  # Replace with your target hosts or group
+  become: yes
+
+  tasks:
+    - name: Check HTTPD status
+      command: systemctl is-enabled httpd
+      register: httpd_status
+      ignore_errors: yes
+
+    - name: Start HTTPD if disabled
+      command: systemctl start httpd
+      when: httpd_status.rc != 0
