@@ -11,4 +11,4 @@
 
     - name: Start HTTPD if disabled
       command: systemctl start httpd
-      when: httpd_status.rc != 0
+      when: httpd_status.rc != 1
