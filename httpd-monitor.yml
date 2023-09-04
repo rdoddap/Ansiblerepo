@@ -10,5 +10,5 @@
       ignore_errors: yes
 
     - name: Start HTTPD if disabled
-      command: systemctl start httpd
+      command: Start HTTPD service
       when: httpd_status.rc != 0
