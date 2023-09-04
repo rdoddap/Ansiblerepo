@@ -1,6 +1,8 @@
 ---
 - name: Update RHEL systems
   hosts: [Test]
+  sudo: yes
+  sudo_user: cloud_user
   become: yes
 
   tasks:
