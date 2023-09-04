@@ -13,4 +13,4 @@
       when: httpd_status.rc != 0
       become: yes
       become_user: root
-      command: service httpd start
+      command: systemctl start httpd
