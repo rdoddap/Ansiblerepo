@@ -2,6 +2,7 @@
 - name: Update RHEL systems
   hosts: [Test]
   become: yes
+  become_user: root
   
   tasks:
     - name: update packages
