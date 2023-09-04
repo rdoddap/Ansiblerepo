@@ -1,0 +1,10 @@
+---
+hosts: [All]
+tasks:
+  - name: Get Password from Credentials
+    set_fact:
+      my_password: '{{lookup(''community.general.credential'',''Demo'').password}}'
+  - name: run with privillege escalation
+    become: true
+    become_method: sudo
+    become_pass: '{{my_password}}'
