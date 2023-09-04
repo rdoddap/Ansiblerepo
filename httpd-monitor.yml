@@ -5,7 +5,7 @@
 
   tasks:
     - name: Check HTTPD status
-      command: systemctl status httpd
+      command: systemctl is-enabled httpd
       register: httpd_status
       ignore_errors: yes
 
