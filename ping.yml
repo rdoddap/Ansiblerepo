@@ -1,6 +1,6 @@
 ---
 - name : ping function
-  - hosts : all
-    become : yes
+  hosts : [all]
+  become : yes
   - task :
      - ping
