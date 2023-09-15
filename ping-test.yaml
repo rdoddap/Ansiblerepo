@@ -1,0 +1,7 @@
+---
+- name : ping function
+  hosts : [all]
+  become : yes
+  tasks:
+  - name: Pinging Host
+    action: ping
