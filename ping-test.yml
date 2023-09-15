@@ -1,7 +1,11 @@
 ---
-- name : ping function
-  hosts : [all]
-  become : yes
+- name: Update RHEL systems
+  hosts: [Test]
+  become: yes
+  become_user: root
+  
   tasks:
-  - name: Pinging Host
-    action: ping
+    - name: update packages
+      yum:
+        name: '*'
+        state: latest
