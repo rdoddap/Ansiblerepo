@@ -2,5 +2,6 @@
 - name : ping function
   hosts : [all]
   become : yes
-  - task :
-     - ping
+  tasks:
+  - name: Pinging Host
+    action: ping
