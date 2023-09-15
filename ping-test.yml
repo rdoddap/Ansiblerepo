@@ -6,4 +6,4 @@
   
   tasks:
     - name: ping action
-      shell: ping
+      ping:
