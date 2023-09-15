@@ -1,6 +1,6 @@
 ---
 - name: Diagnose Windows Machine
-  hosts: windows_host
+  hosts: [windows]
   gather_facts: no  # Disable facts gathering as we're collecting specific information
   tasks:
     - name: Collect Event Logs
