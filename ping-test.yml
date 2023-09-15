@@ -1,8 +1,9 @@
 ---
-- name: ping hosts
+- name: Ping RHEL systems
   hosts: [Test]
   become: yes
   become_user: root
   
   tasks:
-    shell : ping
+    - name: ping action
+      shell: ping
