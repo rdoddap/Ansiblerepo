@@ -1,0 +1,30 @@
+---
+- name: Diagnose Windows Machine
+  hosts: windows_host
+  gather_facts: no  # Disable facts gathering as we're collecting specific information
+  tasks:
+    - name: Collect Event Logs
+      win_shell: Get-WinEvent -LogName * -MaxEvents 100 | Export-Csv C:\logs\event_logs.csv -NoTypeInformation
+      delegate_to: localhost
+      become: yes
+      become_method: runas
+      become_user: administrator
+
+    - name: Collect Firewall Configuration
+      win_command: netsh advfirewall show all > C:\logs\firewall_config.txt
+      delegate_to: localhost
+      become: yes
+      become_method: runas
+      become_user: administrator
+
+    - name: RDP Diagnosis
+      win_shell: Test-NetConnection -ComputerName localhost -Port 3389
+      delegate_to: localhost
+      become: yes
+      become_method: runas
+      become_user: administrator
+      register: rdp_diagnosis
+
+    - name: Display RDP Diagnosis Result
+      debug:
+        var: rdp_diagnosis
